@@ -4,7 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'View/account.dart';
-
+import 'View/habits.dart';
+import 'View/daily.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -35,19 +37,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = [
+    DailyPage(),
+    HabitsPage(),
     AccountPage(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
   ];
 
   void _onItemTapped(int index) {
@@ -55,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,19 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: //if文は式ではなく文のためUI分岐には使用不
-       // TestWidget.createWidget(_selectedIndex),
-      _widgetOptions[_selectedIndex],
+          // TestWidget.createWidget(_selectedIndex),
+          _widgetOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Today'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Today'),
+              icon: Icon(Icons.photo_album), label: 'Album'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.photo_album),
-              label: 'Album'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Account'),
+              icon: Icon(Icons.account_circle), label: 'Account'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
