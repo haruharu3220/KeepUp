@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:keepup/View/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,13 +60,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: //if文は式ではなく文のためUI分岐には使用不可
+        TestWidget.createWidget(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Home'),
+              label: 'Today'),
           BottomNavigationBarItem(
               icon: Icon(Icons.photo_album),
               label: 'Album'),
@@ -81,26 +83,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-class PageWidget extends StatelessWidget {
-  final Color color;
-  final String title;
-
-  PageWidget({required Key key, required this.color, required this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color,
-      child: Center(
-        child: Text(
-          title,
-          style: TextStyle(
-            fontSize: 25,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
