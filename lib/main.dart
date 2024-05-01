@@ -3,7 +3,7 @@ import 'package:keepup/View/test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
+import 'View/account.dart';
 
 
 void main() {
@@ -38,11 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+  static const List<Widget> _widgetOptions = [
+    AccountPage(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -65,7 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: //if文は式ではなく文のためUI分岐には使用不
-       TestWidget.createWidget(_selectedIndex),
+       // TestWidget.createWidget(_selectedIndex),
+      _widgetOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
