@@ -6,17 +6,15 @@ class TestWidget{
   static Widget createWidget(int a){
 
     if(a == 0){
-      // return Center(
-      //   child: Text('_selectedIndex＝${a}!'
-      //       ),
-      // );
-      return AccountWidget.createWidget();
+      return Center(
+        child: Text('_selectedIndex＝${a}!'
+            ),
+      );
+      // return AccountWidget.createWidget();
     }
 
     if(a == 1){
-      return Center(
-        child: Text('_selectedIndex＝${a}'),
-      );
+      return AccountPage();
     }
 
     if(a == 2){
