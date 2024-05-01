@@ -64,10 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: //if文は式ではなく文のためUI分岐には使用不可
-        TestWidget.createWidget(_selectedIndex),
-      ),
+      body: //if文は式ではなく文のためUI分岐には使用不
+       TestWidget.createWidget(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

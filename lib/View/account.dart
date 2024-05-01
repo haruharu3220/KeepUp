@@ -1,11 +1,18 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class AccountWidget {
-  static Widget createWidget() {
-    return Center(
-      child: Text('これはAccount'),
-    );
+class AccountPage extends StatefulWidget {
+  const AccountPage({Key? key}) : super(key: key);
+
+  @override
+  State<AccountPage> createState() => _AccountPageState();
+}
+
+class _AccountPageState extends State<AccountPage> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
+
 
 
