@@ -8,6 +8,10 @@ class DailyPage extends StatefulWidget {
 }
 
 class _DailyPageState extends State<DailyPage> {
+
+
+  int progress = 0; //進捗具合
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +20,14 @@ class _DailyPageState extends State<DailyPage> {
           Container(
             color: Colors.yellowAccent,
             height: 200,
+            child: Center(
+              child: Text(
+                '進捗率${progress}',
+                style: TextStyle(
+
+                ),
+              ),
+            ),
           ),
         ],
       ),

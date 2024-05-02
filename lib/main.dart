@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:keepup/View/test.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -44,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
     DailyPage(),
     HabitsPage(),
     AccountPage(),
+    // HabitsPage(),
   ];
 
   void _onItemTapped(int index) {
